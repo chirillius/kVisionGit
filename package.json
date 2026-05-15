@@ -1,0 +1,12 @@
+{
+  "name": "kvision-landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node tests/page-content.test.mjs",
+    "check": "node --check server.mjs && node --check script.js && node tests/page-content.test.mjs"
+  }
+}
