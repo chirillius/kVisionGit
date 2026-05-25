@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kVision Demo - Menu</title>
+    <link rel="icon" type="image/svg+xml" href="../images/icons/kvlogo.svg" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body data-demo-page="menu">
+    <div class="demo-app-shell">
+      <aside class="demo-sidebar">
+        <a class="demo-sidebar-brand" href="./menu.html">
+          <img src="../images/icons/kvlogo.svg" alt="kVision" />
+        </a>
+        <nav class="demo-sidebar-nav" aria-label="Навигация демо">
+          <a class="demo-sidebar-link" href="./streaming.html" data-demo-nav-page="streaming" data-requires-store><span class="demo-nav-icon">SV</span></a>
+          <a class="demo-sidebar-link" href="./download-archive.html" data-demo-nav-page="download-archive" data-requires-store><span class="demo-nav-icon">AR</span></a>
+          <a class="demo-sidebar-link" href="./live-archive.html" data-demo-nav-page="live-archive" data-requires-store><span class="demo-nav-icon">LA</span></a>
+          <a class="demo-sidebar-link" href="./defects.html" data-demo-nav-page="defects" data-requires-store><span class="demo-nav-icon">DF</span></a>
+          <a class="demo-sidebar-link" href="./statistics.html" data-demo-nav-page="statistics" data-requires-store><span class="demo-nav-icon">ST</span></a>
+        </nav>
+      </aside>
+
+      <header class="demo-header">
+        <a class="demo-header-store" href="./stores.html">
+          <div>
+            <span>Активный магазин</span>
+            <strong data-selected-store-name>Магазин не выбран</strong>
+          </div>
+        </a>
+        <div class="demo-header-actions">
+          <span class="demo-header-tag" data-selected-store-city></span>
+          <a class="demo-button-ghost" href="./login.html" data-demo-logout>Выйти</a>
+        </div>
+      </header>
+
+      <main class="demo-main">
+        <div class="demo-main-inner" data-demo-menu-page>
+          <section class="demo-page-hero">
+            <p class="demo-page-kicker">Menu</p>
+            <h1 class="demo-page-title">Разделы тестового интерфейса</h1>
+            <p class="demo-page-intro">
+              Экран повторяет вход в основные разделы приложения. Для дефектов и статистики
+              используются уже подготовленные mock-данные.
+            </p>
+          </section>
+
+          <section class="demo-menu-grid" data-demo-menu-grid></section>
+        </div>
+      </main>
+    </div>
+
+    <div class="demo-test-banner" data-demo-banner>
+      Тестовая версия • данные вымышлены • демонстрация примера работа сервиса
+    </div>
+
+    <script defer src="./demo.js"></script>
+  </body>
+</html>

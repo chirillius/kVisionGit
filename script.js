@@ -105,7 +105,7 @@
   }
 
   const revealItems = document.querySelectorAll(
-    '.reveal, .reveal-card, .news-strip article, .module-grid article, .value-list article'
+    '.reveal, .reveal-card, .news-strip article, .module-grid article'
   );
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -513,6 +513,56 @@
     update();
     startAutoplay();
   });
+
+  const interfaceImages = document.querySelectorAll('.interface-carousel .carousel-slide img');
+
+  if (interfaceImages.length) {
+    const preview = document.createElement('div');
+    preview.className = 'interface-image-preview';
+    preview.setAttribute('aria-hidden', 'true');
+    preview.innerHTML = '<img alt="" /><span></span>';
+    document.body.append(preview);
+
+    const previewImage = preview.querySelector('img');
+    const previewCaption = preview.querySelector('span');
+    let activeImage = null;
+
+    const showInterfacePreview = (image) => {
+      const figure = image.closest('figure');
+      const title =
+        figure?.querySelector('figcaption strong')?.textContent?.trim() ||
+        image.alt ||
+        'Скриншот интерфейса';
+
+      activeImage = image;
+      previewImage.src = image.currentSrc || image.src;
+      previewImage.alt = image.alt || title;
+      previewCaption.textContent = title;
+      preview.classList.add('is-visible');
+    };
+
+    const hideInterfacePreview = () => {
+      activeImage = null;
+      preview.classList.remove('is-visible');
+    };
+
+    interfaceImages.forEach((image) => {
+      image.tabIndex = 0;
+      image.addEventListener('mouseenter', () => showInterfacePreview(image));
+      image.addEventListener('focus', () => showInterfacePreview(image));
+      image.addEventListener('mouseleave', hideInterfacePreview);
+      image.addEventListener('blur', hideInterfacePreview);
+      image.addEventListener('click', () => showInterfacePreview(image));
+    });
+
+    preview.addEventListener('click', hideInterfacePreview);
+    window.addEventListener('scroll', () => {
+      if (activeImage) {
+        hideInterfacePreview();
+      }
+    }, { passive: true });
+    window.addEventListener('resize', hideInterfacePreview);
+  }
 
   const companyStats = document.querySelector('[data-company-stats]');
 

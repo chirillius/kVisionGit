@@ -2,6 +2,13 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const demoLoginHtml = await readFile(new URL('../demo/login.html', import.meta.url), 'utf8');
+const demoStoresHtml = await readFile(new URL('../demo/stores.html', import.meta.url), 'utf8');
+const demoMenuHtml = await readFile(new URL('../demo/menu.html', import.meta.url), 'utf8');
+const demoDefectsHtml = await readFile(new URL('../demo/defects.html', import.meta.url), 'utf8');
+const demoStatisticsHtml = await readFile(new URL('../demo/statistics.html', import.meta.url), 'utf8');
+const demoScript = await readFile(new URL('../demo/demo.js', import.meta.url), 'utf8');
+const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 'utf8');
 
 {
   assert.match(html, /Видеоаналитика и контроль торговых точек/i);
@@ -12,6 +19,9 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /Получить демонстрацию/i);
   assert.match(html, /styles\.css/i);
   assert.match(html, /script\.js/i);
+  assert.match(html, /demo-app\/login\?demo=1/i);
+  assert.match(html, /target="_blank"/i);
+  assert.match(html, /rel="noopener"/i);
 }
 
 {
@@ -93,6 +103,8 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   for (const slot of requiredSlots) {
     assert.match(html, new RegExp(slot, 'i'));
   }
+
+  assert.match(html, /demo-app\/login\?demo=1/i);
 }
 
 {
@@ -104,11 +116,6 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
     'images/client/download-page.jpg',
     'images/client/players-download-page.jpg',
     'images/client/live-archive.jpg',
-    'images/client/defects.jpg',
-    'images/client/defectsImages.jpg',
-    'images/client/defectsVideos.jpg',
-    'images/client/statistics.jpg',
-    'images/client/statisticsproblems.jpg',
   ];
 
   for (const image of requiredImages) {
@@ -144,6 +151,13 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
     'data-preview-src="images/defects/smoke.jpeg"',
     'data-preview-src="images/defects/phones.jpeg"',
     'data-preview-src="images/defects/pose.jpeg"',
+    'data-preview-src="images/defects/cash-register.jpeg"',
+    'data-preview-src="images/defects/toManyPeopleAtStall.jpeg"',
+    'data-preview-src="images/defects/noOneAtStall.jpeg"',
+    'data-preview-src="images/defects/crowd.jpeg"',
+    'data-preview-src="images/defects/delays.jpeg"',
+    'data-preview-src="images/defects/mopping.jpeg"',
+    'data-preview-src="images/defects/clearStall.jpeg"',
   ];
 
   for (const scenario of requiredControlScenarios) {
@@ -181,8 +195,6 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
     'data-carousel="product-entry"',
     'data-carousel="streaming"',
     'data-carousel="archive"',
-    'data-carousel="defects"',
-    'data-carousel="statistics"',
   ];
 
   for (const group of requiredCarouselGroups) {
@@ -192,6 +204,8 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /carousel__button/i);
   assert.match(html, /data-carousel-next/i);
   assert.match(html, /data-carousel-prev/i);
+  assert.match(html, /data-carousel="streaming"[^>]*data-carousel-autoplay="false"/i);
+  assert.match(html, /data-carousel="archive"[^>]*data-carousel-autoplay="false"/i);
 }
 
 {
@@ -199,6 +213,63 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(html, /video-scan-line/i);
   assert.doesNotMatch(html, /defect-preview/i);
   assert.doesNotMatch(html, /<video[^>]*\scontrols(\s|>|=)/i);
+}
+
+{
+  const demoPages = [
+    demoLoginHtml,
+    demoStoresHtml,
+    demoMenuHtml,
+    demoDefectsHtml,
+    demoStatisticsHtml,
+  ];
+
+  for (const page of demoPages) {
+    assert.match(page, /demo\.css/i);
+    assert.match(page, /demo\.js/i);
+    assert.match(
+      page,
+      /Тестовая версия • данные вымышлены • демонстрация примера работа сервиса/i
+    );
+  }
+}
+
+{
+  assert.match(demoLoginHtml, /value="admin"/i);
+  assert.match(demoLoginHtml, /data-demo-login-form/i);
+  assert.match(demoStoresHtml, /data-demo-store-list/i);
+  assert.match(demoStoresHtml, /data-store-name/i);
+  assert.match(demoMenuHtml, /data-demo-menu-page/i);
+  assert.match(demoDefectsHtml, /data-demo-defects-page/i);
+  assert.match(demoDefectsHtml, /data-defects-start-date/i);
+  assert.match(demoDefectsHtml, /data-defects-list/i);
+  assert.match(demoStatisticsHtml, /data-demo-statistics-page/i);
+  assert.match(demoStatisticsHtml, /data-statistics-start-date/i);
+  assert.match(demoStatisticsHtml, /data-statistics-grid/i);
+}
+
+{
+  const expectedDemoTokens = [
+    'Охотный ряд',
+    'Невский пассаж',
+    'Балтийская линия',
+    'Conversion',
+    'TooManyPeopleAtStall',
+    'NoOneAtStallForTooLong',
+    'InactiveSalesman',
+    'generateDemoDefects',
+    'renderStatisticsPage',
+    'renderStoresPage',
+  ];
+
+  for (const token of expectedDemoTokens) {
+    assert.match(demoScript, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
+  }
+
+  assert.match(demoStyles, /demo-sidebar/i);
+  assert.match(demoStyles, /demo-test-banner/i);
+  assert.match(demoStyles, /demo-store-card/i);
+  assert.match(demoStyles, /demo-stat-card/i);
 }
 
 console.log('kVision landing content checks passed');

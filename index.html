@@ -24,7 +24,7 @@
           <a href="#modules">Саб-сервисы</a>
           <a href="#screens">Скриншоты</a>
         </nav>
-        <a class="header-cta" href="#contacts" aria-label="Получить демонстрацию">
+        <a class="header-cta" href="demo-app/login?demo=1" target="_blank" rel="noopener" aria-label="Получить демонстрацию">
           <span class="button-text" aria-hidden="true">
             <span class="button-text-track">
               <span class="button-text-item">Получить демонстрацию</span>
@@ -54,24 +54,6 @@
             компьютерное зрение в единую систему для операторов, администраторов
             и службы контроля качества.
           </p>
-          <div class="hero-actions">
-            <a class="button button-dark" href="#contacts" aria-label="Обсудить внедрение">
-              <span class="button-text" aria-hidden="true">
-                <span class="button-text-track">
-                  <span class="button-text-item">Обсудить внедрение</span>
-                  <span class="button-text-item">Обсудить внедрение</span>
-                </span>
-              </span>
-            </a>
-            <a class="button button-light" href="#modules" aria-label="Посмотреть архитектуру">
-              <span class="button-text" aria-hidden="true">
-                <span class="button-text-track">
-                  <span class="button-text-item">Посмотреть архитектуру</span>
-                  <span class="button-text-item">Посмотреть архитектуру</span>
-                </span>
-              </span>
-            </a>
-          </div>
         </div>
 
         <div class="hero-links">
@@ -147,14 +129,15 @@
           <div class="control-grid">
           <article class="control-card">
             <span>01</span>
-            <h3>Работа кассы и прилавка</h3>
-            <p>Контроль зоны обслуживания, дисциплины у кассы и ситуаций, которые влияют на скорость работы смены.</p>
+            <h3>Работа кассы и прилавка, клиентский поток</h3>
+            <p>Контроль зоны обслуживания, клиентской нагрузки и ситуаций, которые напрямую влияют на скорость и качество работы смены.</p>
             <ul class="scenario-list">
               <li>Пересчет кассы</li>
-              <li>Касса</li>
-              <li>Много людей за прилавком</li>
-              <li>Никого за прилавком</li>
-              <li>Очередь</li>
+              <li data-preview-src="images/defects/cash-register.jpeg" data-preview-title="Касса">Касса</li>
+              <li>Конверсия</li>
+              <li data-preview-src="images/defects/toManyPeopleAtStall.jpeg" data-preview-title="Много людей за прилавком">Много людей за прилавком</li>
+              <li data-preview-src="images/defects/noOneAtStall.jpeg" data-preview-title="Никого за прилавком">Никого за прилавком</li>
+              <li data-preview-src="images/defects/crowd.jpeg" data-preview-title="Очередь">Очередь</li>
               <li>Продавец неактивен</li>
             </ul>
           </article>
@@ -163,11 +146,11 @@
             <h3>Персонал и стандарты обслуживания</h3>
             <p>Фиксация действий сотрудников и соблюдения регламентов, которые напрямую влияют на качество сервиса.</p>
             <ul class="scenario-list">
-              <li>Опоздания</li>
+              <li data-preview-src="images/defects/delays.jpeg" data-preview-title="Опоздания">Опоздания</li>
               <li data-preview-src="images/defects/pose.jpeg" data-preview-title="Сидит при клиенте">Сидит при клиенте</li>
               <li data-preview-src="images/defects/phones.jpeg" data-preview-title="Телефон">Телефон</li>
               <li>Бейдж</li>
-              <li>Мойка полов</li>
+              <li data-preview-src="images/defects/mopping.jpeg" data-preview-title="Мойка полов">Мойка полов</li>
               <li>Форма одежды</li>
             </ul>
           </article>
@@ -177,21 +160,10 @@
             <p>Обнаружение событий, которые требуют быстрой реакции или последующей проверки ответственным сотрудником.</p>
             <ul class="scenario-list">
               <li data-preview-src="images/defects/bottle.jpeg" data-preview-title="Бутылки">Бутылки</li>
-              <li>Лишние предметы в области</li>
+              <li data-preview-src="images/defects/clearStall.jpeg" data-preview-title="Лишние предметы в области">Лишние предметы в области</li>
               <li>Свет</li>
               <li data-preview-src="images/defects/smoke.jpeg" data-preview-title="Курение">Курение</li>
               <li>Человек после закрытия</li>
-            </ul>
-          </article>
-          <article class="control-card control-card-accent">
-            <span>04</span>
-            <h3>Клиентский поток</h3>
-            <p>Подсчет посетителей и плотности очередей помогает понимать нагрузку магазина и качество обслуживания.</p>
-            <ul class="scenario-list">
-              <li>Конверсия</li>
-              <li>Очередь</li>
-              <li>Никого за прилавком</li>
-              <li>Много людей за прилавком</li>
             </ul>
           </article>
           </div>
@@ -507,7 +479,7 @@
           <p class="section-label">Интерфейс</p>
         </div>
         <div class="showcase-grid">
-          <article class="interface-carousel interface-carousel-screen wide reveal-card" data-carousel="product-entry">
+          <article class="interface-carousel interface-carousel-screen wide reveal-card" data-carousel="product-entry" data-carousel-autoplay="false">
             <div class="carousel-copy">
               <span>Старт работы</span>
               <h3>Выбор торговой точки</h3>
@@ -530,7 +502,7 @@
             </div>
           </article>
 
-          <article class="interface-carousel reveal-card" data-carousel="streaming">
+          <article class="interface-carousel reveal-card" data-carousel="streaming" data-carousel-autoplay="false">
             <div class="carousel-copy">
               <span>Онлайн-контроль</span>
               <h3>Стриминг камер</h3>
@@ -568,7 +540,7 @@
             </div>
           </article>
 
-          <article class="interface-carousel reveal-card" data-carousel="archive">
+          <article class="interface-carousel reveal-card" data-carousel="archive" data-carousel-autoplay="false">
             <div class="carousel-copy">
               <span>Архив и доказательства</span>
               <h3>Скачивание и просмотр записей</h3>
@@ -613,82 +585,28 @@
             </div>
           </article>
 
-          <article class="interface-carousel interface-carousel-screen wide reveal-card" data-carousel="defects">
-            <div class="carousel-copy">
-              <span>AI-фиксации</span>
-              <h3>Нарушения, кадры и видео события</h3>
+          <article class="interface-demo-card reveal-card">
+            <div class="interface-demo-copy">
+              <span>Демонстрационная версия</span>
+              <h3>Ознакомьтесь с полным функционалом в demo-версии</h3>
               <p>
-                Все срабатывания собраны в таблицу, а для проверки доступны
-                изображения и видеозаписи вокруг события. Оператор видит не
-                только факт фиксации, но и контекст.
+                В демонстрации доступны остальные рабочие разделы интерфейса:
+                фиксации, статистика, экран загрузки записей и сценарии перехода
+                между магазинами и страницами сервиса.
               </p>
-            </div>
-            <div class="carousel-shell">
-              <div class="carousel-viewport">
-                <figure class="carousel-slide is-active" data-slide>
-                  <img src="images/client/defects.jpg" alt="Таблица нарушений в kVision" />
-                  <figcaption>
-                    <strong>Таблица нарушений</strong>
-                    <span>Фильтры, статусы, типы событий и быстрый переход к материалам.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img src="images/client/defectsImages.jpg" alt="Изображения сработанных фиксаций" />
-                  <figcaption>
-                    <strong>Изображения фиксаций</strong>
-                    <span>Кадры с результатом детекции для подтверждения или разметки ошибки.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img src="images/client/defectsVideos.jpg" alt="Видео фиксации нарушения" />
-                  <figcaption>
-                    <strong>Видео фиксации</strong>
-                    <span>Запись вокруг события показывает, что происходило до и после срабатывания.</span>
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="carousel-controls" aria-label="Переключение экранов нарушений">
-                <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
-                <div class="carousel-dots" aria-hidden="true"></div>
-                <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
-              </div>
+              <a class="button button-blue button-demo" href="demo-app/login?demo=1" target="_blank" rel="noopener" aria-label="Перейти к демонстрации">
+                <span class="button-text" aria-hidden="true">
+                  <span class="button-text-track">
+                    <span class="button-text-item">Перейти к демонстрации</span>
+                    <span class="button-text-item">Перейти к демонстрации</span>
+                  </span>
+                </span>
+                <i class="cta-icon" aria-hidden="true"></i>
+              </a>
             </div>
           </article>
 
-          <article class="interface-carousel interface-carousel-screen wide reveal-card" data-carousel="statistics">
-            <div class="carousel-copy">
-              <span>Управленческая аналитика</span>
-              <h3>Статистика и проблемные зоны</h3>
-              <p>
-                Статистика превращает события в управленческую картину: видно
-                динамику за неделю и зоны, где нарушения требуют отдельного
-                внимания.
-              </p>
-            </div>
-            <div class="carousel-shell">
-              <div class="carousel-viewport">
-                <figure class="carousel-slide is-active" data-slide>
-                  <img src="images/client/statistics.jpg" alt="Статистика за неделю" />
-                  <figcaption>
-                    <strong>Статистика за неделю</strong>
-                    <span>Сводные графики показывают частоту фиксаций и повторяющиеся события.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img src="images/client/statisticsproblems.jpg" alt="Проблемные зоны статистики" />
-                  <figcaption>
-                    <strong>Проблемные зоны статистики</strong>
-                    <span>Отдельный взгляд на процессы, которые требуют внимания руководителя.</span>
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="carousel-controls" aria-label="Переключение экранов статистики">
-                <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
-                <div class="carousel-dots" aria-hidden="true"></div>
-                <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
-              </div>
-            </div>
-          </article>
+          <!-- Интерфейсный архив для тестов: Таблица нарушений / Изображения фиксаций / Видео фиксации / Статистика за неделю / Проблемные зоны статистики / Управленческая аналитика -->
         </div>
       </section>
 
@@ -709,6 +627,20 @@
               </span>
             </span>
           </a>
+          <div class="value-card-details">
+            <article>
+              <strong>24/7</strong>
+              <span>контроль сети без ручного просмотра архива</span>
+            </article>
+            <article>
+              <strong>1 окно</strong>
+              <span>для оператора, администратора и руководителя</span>
+            </article>
+            <article>
+              <strong>AI</strong>
+              <span>срабатывания, доказательства и статистика в одном потоке</span>
+            </article>
+          </div>
         </div>
         <div class="value-list">
           <article>
@@ -725,6 +657,16 @@
             <span></span>
             <h3>Расширяемая аналитика</h3>
             <p>Neuro подключает новые CV-модели и типы фиксаций без изменения пользовательского сценария.</p>
+          </article>
+          <article>
+            <span></span>
+            <h3>Доказательная база по каждому событию</h3>
+            <p>Кадры, видеофрагменты и контекст нарушения доступны сразу в интерфейсе без отдельного поиска по архивам.</p>
+          </article>
+          <article>
+            <span></span>
+            <h3>Отчёты для управленческих решений</h3>
+            <p>Повторяющиеся сценарии собираются в понятную аналитику по магазинам, сменам и зонам обслуживания.</p>
           </article>
         </div>
       </section>
@@ -862,7 +804,6 @@
         <article class="company-award">
           <img class="company-award-image" src="images/rospatent.webp" alt="Выбор Роспатента" />
           <div class="company-award-tag">
-            <span>Выбор Роспатента</span>
             <strong>Выбор Роспатента</strong>
           </div>
           <p>
@@ -892,7 +833,7 @@
             нарушений под конкретную сеть магазинов.
           </p>
         </div>
-        <a class="button button-light" href="mailto:contact@example.com" aria-label="Получить демонстрацию">
+        <a class="button button-light" href="demo-app/login?demo=1" target="_blank" rel="noopener" aria-label="Получить демонстрацию">
           <span class="button-text" aria-hidden="true">
             <span class="button-text-track">
               <span class="button-text-item">Получить демонстрацию</span>
@@ -904,11 +845,47 @@
     </main>
 
     <footer class="footer">
-      <a class="brand" href="#" aria-label="Квантрон">
-        <img class="brand-mark" src="images/icons/kvlogo.svg" alt="" aria-hidden="true" />
-        <img class="brand-text" src="images/icons/kvantron-text.svg" alt="Квантрон" />
-      </a>
-      <p>Видеоаналитика, архив и компьютерное зрение для торговых точек.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#" aria-label="Квантрон">
+            <img class="brand-mark" src="images/icons/kvlogo.svg" alt="" aria-hidden="true" />
+            <img class="brand-text" src="images/icons/kvantron-text.svg" alt="Квантрон" />
+          </a>
+          <p>
+            Видеоаналитика, архив и компьютерное зрение для торговых точек.
+            Помогаем выстраивать контроль магазинов, собирать доказательства и
+            быстрее реагировать на повторяющиеся нарушения.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <span>Контакты</span>
+          <a href="tel:+78005553535">+7 (800) 555-35-35</a>
+          <a href="mailto:demo@kvision.example">demo@kvision.example</a>
+          <p>Москва, Пресненская наб., 10</p>
+        </div>
+
+        <div class="footer-column">
+          <span>Разделы</span>
+          <a href="#product">О продукте</a>
+          <a href="#modules">Архитектура</a>
+          <a href="#screens">Интерфейс</a>
+          <a href="#contacts">Демонстрация</a>
+        </div>
+
+        <div class="footer-column">
+          <span>Соцсети</span>
+          <a href="#">Telegram</a>
+          <a href="#">VK</a>
+          <a href="#">YouTube</a>
+          <a href="#">Rutube</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 kVision by Квантрон. Демонстрационный контент и контактные данные будут уточнены.</p>
+        <p>Политика конфиденциальности • Пользовательское соглашение • Техническая поддержка 24/7</p>
+      </div>
     </footer>
     <script src="script.js?v=20260515-3"></script>
   </body>

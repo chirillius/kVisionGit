@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kVision Demo - Statistics</title>
+    <link rel="icon" type="image/svg+xml" href="../images/icons/kvlogo.svg" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body data-demo-page="statistics">
+    <div class="demo-app-shell">
+      <aside class="demo-sidebar">
+        <a class="demo-sidebar-brand" href="./menu.html">
+          <img src="../images/icons/kvlogo.svg" alt="kVision" />
+        </a>
+        <nav class="demo-sidebar-nav" aria-label="Навигация демо">
+          <a class="demo-sidebar-link" href="./streaming.html" data-demo-nav-page="streaming" data-requires-store><span class="demo-nav-icon">SV</span></a>
+          <a class="demo-sidebar-link" href="./download-archive.html" data-demo-nav-page="download-archive" data-requires-store><span class="demo-nav-icon">AR</span></a>
+          <a class="demo-sidebar-link" href="./live-archive.html" data-demo-nav-page="live-archive" data-requires-store><span class="demo-nav-icon">LA</span></a>
+          <a class="demo-sidebar-link" href="./defects.html" data-demo-nav-page="defects" data-requires-store><span class="demo-nav-icon">DF</span></a>
+          <a class="demo-sidebar-link" href="./statistics.html" data-demo-nav-page="statistics" data-requires-store><span class="demo-nav-icon">ST</span></a>
+        </nav>
+      </aside>
+
+      <header class="demo-header">
+        <a class="demo-header-store" href="./stores.html">
+          <div>
+            <span>Активный магазин</span>
+            <strong data-selected-store-name>Магазин не выбран</strong>
+          </div>
+        </a>
+        <div class="demo-header-actions">
+          <span class="demo-header-tag" data-selected-store-city></span>
+          <a class="demo-button-ghost" href="./login.html" data-demo-logout>Выйти</a>
+        </div>
+      </header>
+
+      <main class="demo-main">
+        <div class="demo-main-inner" data-demo-statistics-page>
+          <section class="demo-page-hero">
+            <p class="demo-page-kicker">Statistics</p>
+            <h1 class="demo-page-title">Статистика магазина <span data-statistics-store-name></span></h1>
+            <p class="demo-page-intro">
+              Числа рассчитываются на тех же случайных 7 днях, что и раздел дефектов, поэтому выглядят
+              согласованно и подходят для демонстрации интерфейса клиенту.
+            </p>
+          </section>
+
+          <section class="demo-surface-card demo-toolbar">
+            <div class="demo-field">
+              <label for="statistics-start-date">Начальная дата</label>
+              <input id="statistics-start-date" type="date" data-statistics-start-date />
+            </div>
+            <button class="demo-button" type="button" data-statistics-generate>Пересчитать показатели</button>
+          </section>
+
+          <section class="demo-stat-grid" data-statistics-grid></section>
+          <section class="demo-kpi-grid" data-statistics-kpi></section>
+
+          <section class="demo-surface-card" style="padding: 24px;">
+            <div class="demo-card-head" style="margin-bottom: 16px;">
+              <div>
+                <h3>Динамика по дням</h3>
+                <p class="demo-page-intro">Нагрузка по событиям на выбранный 7-дневный диапазон.</p>
+              </div>
+            </div>
+            <div class="demo-bar-list" data-statistics-bars></div>
+          </section>
+
+          <section class="demo-type-grid" data-statistics-types></section>
+        </div>
+      </main>
+    </div>
+
+    <div class="demo-test-banner" data-demo-banner>
+      Тестовая версия • данные вымышлены • демонстрация примера работа сервиса
+    </div>
+
+    <script defer src="./demo.js"></script>
+  </body>
+</html>

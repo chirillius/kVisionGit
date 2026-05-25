@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kVision Demo - Вход</title>
+    <link rel="icon" type="image/svg+xml" href="../images/icons/kvlogo.svg" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body class="demo-login-body" data-demo-page="login">
+    <div class="demo-login-layout">
+      <section class="demo-login-panel">
+        <a class="demo-login-brand" href="./login.html" aria-label="kVision demo">
+          <img src="../images/icons/kvlogo.svg" alt="" aria-hidden="true" />
+          <div class="demo-login-brand-text">
+            <strong>kVision demo</strong>
+            <span>Тестовый контур интерфейса сервиса</span>
+          </div>
+        </a>
+
+        <div>
+          <p class="demo-page-kicker">Авторизация</p>
+          <h1 class="demo-login-title">Демонстрационный вход в интерфейс kVision</h1>
+          <p class="demo-login-description">
+            Поля уже заполнены тестовыми значениями. После входа откроется экран выбора
+            магазина, а затем разделы с вымышленными данными.
+          </p>
+        </div>
+
+        <form class="demo-login-form" data-demo-login-form>
+          <div class="demo-field">
+            <label for="demo-login">Логин</label>
+            <input id="demo-login" name="login" type="text" value="admin" data-demo-login />
+          </div>
+          <div class="demo-field">
+            <label for="demo-password">Пароль</label>
+            <input
+              id="demo-password"
+              name="password"
+              type="password"
+              value="admin"
+              data-demo-password
+            />
+          </div>
+          <div class="demo-login-actions">
+            <button class="demo-button" type="submit">Вход</button>
+            <a class="demo-button-secondary" href="../index.html">Вернуться на лендинг</a>
+          </div>
+        </form>
+
+        <div class="demo-login-meta">
+          <span class="demo-panel-caption">Тестовый пользователь: admin / admin</span>
+        </div>
+      </section>
+
+      <aside class="demo-login-side">
+        <div class="demo-login-highlight">
+          <strong>Что доступно в демо</strong>
+          <p class="demo-login-description">
+            Повторены логика входа, выбор магазина, список дефектов на 7 дней и блок
+            статистики с правдоподобными числами.
+          </p>
+        </div>
+
+        <ul class="demo-info-list">
+          <li>3 тестовых магазина с отдельными профилями и выбранным магазином в шапке.</li>
+          <li>Фиксации генерируются заново под любую начальную дату на период 7 дней.</li>
+          <li>Видео и изображения пока не подключены, но точки входа в сценарии уже кликабельны.</li>
+        </ul>
+
+        <ul class="demo-fact-list">
+          <li>Типы дефектов совпадают с основным приложением.</li>
+          <li>Данные не связаны с боевым сервисом и хранятся только в текущей вкладке.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="demo-test-banner" data-demo-banner>
+      Тестовая версия • данные вымышлены • демонстрация примера работа сервиса
+    </div>
+
+    <script defer src="./demo.js"></script>
+  </body>
+</html>
