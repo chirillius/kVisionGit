@@ -11,10 +11,11 @@ const demoScript = await readFile(new URL('../demo/demo.js', import.meta.url), '
 const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 'utf8');
 
 {
-  assert.match(html, /Видеоаналитика и контроль торговых точек/i);
+  assert.match(html, /AI-видеоаналитика для розничных сетей/i);
+  assert.match(html, /Контролируйте магазины без ручного просмотра часов видео/i);
   assert.match(html, /Frontend/i);
   assert.match(html, /CentralServer/i);
-  assert.match(html, /TobaccoServer/i);
+  assert.match(html, /kServer/i);
   assert.match(html, /Neuro/i);
   assert.match(html, /Получить демонстрацию/i);
   assert.match(html, /styles\.css/i);
@@ -26,11 +27,22 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredArchitectureCopy = [
-    'Один интерфейс для сети магазинов',
-    'Frontend -> CentralServer -> TobaccoServer -> Neuro',
-    'оператор видит единый интерфейс',
-    'локальный архив и камеры остаются на стороне магазина',
-    'Neuro работает как внутренний CV-сервис',
+    'Единый интерфейс для всей сети и локальная обработка видео рядом с камерами',
+    'Интерфейс оператора',
+    'Центральный контур',
+    'Локальный сервер магазина',
+    'Способ подключения',
+    'Что Нужно Для Запуска',
+    'Подключение без сложной перестройки текущего контура',
+    '2-6 камерам',
+    'Единый вход',
+    'Сервер на точке',
+    'Готовые фиксации',
+    'Пилот можно собрать быстро и масштабировать по сети',
+    '1 точка для старта',
+    '2-6 камер на пилот',
+    'Локальный контур',
+    'Масштабирование по сети',
     'architecture-map',
     'data-carousel="architecture"',
     'data-carousel-autoplay="false"',
@@ -38,10 +50,15 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'architecture-slide',
     'architecture-full',
     'data-architecture-full',
-    'Пользователь',
-    'RTSP-камеры',
-    'Видеоархив',
+    'images/architecture/operator.png',
+    'images/architecture/frontend.png',
+    'images/architecture/centralServer.png',
+    'images/architecture/kServer.png',
+    'images/architecture/neuro.png',
     'AI-анализ',
+    'Доступ и роли',
+    'Видео и архив',
+    'AI анализ',
   ];
 
   for (const copy of requiredArchitectureCopy) {
@@ -51,11 +68,11 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredBusinessCopy = [
-    'Ежедневный контроль без ручного просмотра часов видео',
+    'Меньше ручной проверки, быстрее реакция, прозрачнее контроль',
     'Руководитель видит повторяющиеся проблемы',
-    'Администратор управляет магазинами',
-    'Оператор закрывает фиксации',
-    'Управленческая аналитика',
+    'Администратор управляет доступами',
+    'Оператор проверяет доказательства',
+    'Данные для решений',
   ];
 
   for (const copy of requiredBusinessCopy) {
@@ -65,7 +82,7 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredCompanyCopy = [
-    'О Квантрон',
+    'О компании',
     'Российский разработчик систем технического зрения и автоматизации производства',
     'Специализируемся на полном цикле создания',
     'программно-аппаратных',
@@ -88,10 +105,10 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 {
   const requiredSlots = [
     'Меню выбора магазина',
-    'Выбор камер для стрима',
-    'Просмотр стрима',
-    'Скачивание видео',
-    'Просмотр записей',
+    'Выбор камер',
+    'Онлайн-просмотр',
+    'Видеофрагменты',
+    'Архив и видеофрагменты',
     'Live-архив',
     'Таблица нарушений',
     'Изображения фиксаций',
@@ -110,12 +127,16 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 {
   const requiredImages = [
     'images/client/stores.jpg',
-    'images/client/login-page.jpg',
     'images/client/streaming-camera-select.jpg',
     'images/client/streaming.jpg',
     'images/client/download-page.jpg',
     'images/client/players-download-page.jpg',
     'images/client/live-archive.jpg',
+    'images/architecture/operator.png',
+    'images/architecture/frontend.png',
+    'images/architecture/centralServer.png',
+    'images/architecture/kServer.png',
+    'images/architecture/neuro.png',
   ];
 
   for (const image of requiredImages) {
@@ -125,10 +146,9 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredControlScenarios = [
-    'Работа кассы и прилавка',
-    'Персонал и стандарты обслуживания',
+    'Касса и поток клиентов',
+    'Персонал и стандарты',
     'Безопасность и порядок',
-    'Клиентский поток',
     '18 сценариев контроля',
     'Лишние предметы в области',
     'Опоздания',
@@ -170,8 +190,8 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'Примеры фиксаций',
     'Бутылки',
     'Курение',
-    'Телефоны',
-    'Мытье полов',
+    'Телефон в рабочей зоне',
+    'Мытьё полов',
     'Открытие кассы',
     'Очереди',
     'videos/bottles-h264.mp4',
@@ -182,7 +202,10 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'videos/crowd-h264.mp4',
     'data-scroll-video',
     'data-detection-video',
-    'потенциальная кража из кассового лотка',
+    'Фиксирует события в кассовой зоне',
+    'Точность в контуре',
+    'Дообучение модели',
+    'подтверждённым и отклонённым оператором событиям',
   ];
 
   for (const example of requiredDetectionExamples) {

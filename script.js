@@ -31,7 +31,9 @@
       lastScrollY = currentScrollY;
     };
 
+    syncHeaderVisibility();
     window.addEventListener('scroll', syncHeaderVisibility, { passive: true });
+    window.addEventListener('resize', syncHeaderVisibility);
   }
 
   const playVideo = (video) => {
@@ -514,54 +516,84 @@
     startAutoplay();
   });
 
-  const interfaceImages = document.querySelectorAll('.interface-carousel .carousel-slide img');
+  const interfaceImages = document.querySelectorAll('.interface-carousel .carousel-slide img, .architecture-full-image');
 
   if (interfaceImages.length) {
     const preview = document.createElement('div');
     preview.className = 'interface-image-preview';
     preview.setAttribute('aria-hidden', 'true');
-    preview.innerHTML = '<img alt="" /><span></span>';
+    preview.setAttribute('role', 'dialog');
+    preview.setAttribute('aria-modal', 'true');
+    preview.setAttribute('aria-label', 'Просмотр изображения во весь экран');
+    preview.innerHTML = '<button class="interface-image-preview__close" type="button" aria-label="Закрыть полноэкранный просмотр">×</button><img alt="" /><span></span>';
     document.body.append(preview);
 
+    const closeButton = preview.querySelector('button');
     const previewImage = preview.querySelector('img');
     const previewCaption = preview.querySelector('span');
     let activeImage = null;
 
-    const showInterfacePreview = (image) => {
+    const getImageTitle = (image) => {
       const figure = image.closest('figure');
-      const title =
+      return (
         figure?.querySelector('figcaption strong')?.textContent?.trim() ||
         image.alt ||
-        'Скриншот интерфейса';
+        image.getAttribute('aria-label') ||
+        'Изображение интерфейса'
+      );
+    };
+
+    const showInterfacePreview = (image) => {
+      const title = getImageTitle(image);
 
       activeImage = image;
       previewImage.src = image.currentSrc || image.src;
       previewImage.alt = image.alt || title;
       previewCaption.textContent = title;
       preview.classList.add('is-visible');
+      preview.removeAttribute('aria-hidden');
+      document.body.classList.add('has-image-modal');
+      closeButton.focus({ preventScroll: true });
     };
 
     const hideInterfacePreview = () => {
+      if (!activeImage) {
+        return;
+      }
+
+      const imageToFocus = activeImage;
       activeImage = null;
       preview.classList.remove('is-visible');
+      preview.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('has-image-modal');
+      imageToFocus.focus({ preventScroll: true });
     };
 
     interfaceImages.forEach((image) => {
       image.tabIndex = 0;
-      image.addEventListener('mouseenter', () => showInterfacePreview(image));
-      image.addEventListener('focus', () => showInterfacePreview(image));
-      image.addEventListener('mouseleave', hideInterfacePreview);
-      image.addEventListener('blur', hideInterfacePreview);
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', `${getImageTitle(image)} — открыть во весь экран`);
       image.addEventListener('click', () => showInterfacePreview(image));
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          showInterfacePreview(image);
+        }
+      });
     });
 
-    preview.addEventListener('click', hideInterfacePreview);
-    window.addEventListener('scroll', () => {
-      if (activeImage) {
+    closeButton.addEventListener('click', hideInterfacePreview);
+    preview.addEventListener('click', (event) => {
+      if (event.target === preview) {
         hideInterfacePreview();
       }
-    }, { passive: true });
-    window.addEventListener('resize', hideInterfacePreview);
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && activeImage) {
+        hideInterfacePreview();
+      }
+    });
   }
 
   const companyStats = document.querySelector('[data-company-stats]');
