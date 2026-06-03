@@ -84,24 +84,71 @@
         </div>
       </section>
 
-      <section class="product-overview section-pad">
-        <article class="product-card product-card-intro">
-          <div class="product-card-head">
-            <div class="section-kicker">О продукте</div>
-            <div class="product-card-copy">
-              <h2>kVision превращает видеонаблюдение из пассивного архива в рабочий инструмент контроля</h2>
-              <p>
-                Система автоматически находит события, группирует их по магазинам,
-                камерам и типам нарушений, а оператор получает готовую карточку
-                с видеофрагментом, временем и контекстом.
-              </p>
+      <section class="product-showcase section-pad" id="control" data-product-showcase>
+        <div class="product-showcase-shell">
+          <div class="product-showcase-head">
+            <p class="section-label inverted">О продукте</p>
+            <div class="product-showcase-tabs" data-product-tabs>
+              <button class="product-tab is-active" type="button">Касса и поток</button>
+              <button class="product-tab" type="button">Персонал и стандарты</button>
+              <button class="product-tab" type="button">Безопасность и порядок</button>
             </div>
           </div>
-          <div class="product-flow" aria-label="Как kVision обрабатывает событие">
+
+          <div class="product-showcase-stage">
+            <div class="product-showcase-panel">
+              <div class="product-showcase-copy">
+                <p class="product-showcase-label" data-product-category-label>Категория 01</p>
+                <h2 class="product-showcase-title" data-product-category-title>
+                  Касса и поток клиентов
+                </h2>
+                <p class="product-showcase-description" data-product-category-description>
+                  Сценарии, которые помогают быстрее замечать перегрузку кассовой зоны, очереди
+                  и спорные эпизоды обслуживания.
+                </p>
+              </div>
+
+              <div class="product-showcase-scenarios" data-product-scenarios></div>
+            </div>
+
+            <article class="product-preview" data-product-preview>
+              <div class="product-preview-meta">
+                <p class="product-preview-kicker" data-product-preview-kicker>Касса и поток клиентов</p>
+                <h3 class="product-preview-title" data-product-preview-title>Касса</h3>
+                <p class="product-preview-copy" data-product-preview-copy>
+                  Быстрый просмотр эпизодов в кассовой зоне с понятным визуальным доказательством
+                  для проверки.
+                </p>
+              </div>
+
+              <div class="product-preview-frame">
+                <img
+                  class="product-preview-image"
+                  data-product-preview-image
+                  src="images/defects/cash-register.jpeg"
+                  alt="Касса"
+                />
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="product-overview">
+          <div class="product-overview-copy">
+            <p class="product-overview-kicker">Как это работает</p>
+            <h2>kVision превращает видеонаблюдение из пассивного архива в рабочий инструмент контроля</h2>
+            <p>
+              Система автоматически находит события, группирует их по магазинам, камерам и типам
+              нарушений, а оператор получает готовую карточку с видеофрагментом, временем и
+              контекстом.
+            </p>
+          </div>
+
+          <div class="product-overview-flow" aria-label="Как kVision обрабатывает событие">
             <article>
               <span>01</span>
               <strong>Камеры</strong>
-              <p>Видео поступает из торговой точки или локального архива.</p>
+              <p>Сервер сохраняет в архив кадры с движением, чтобы в анализ попадали только значимые эпизоды.</p>
             </article>
             <article>
               <span>02</span>
@@ -124,63 +171,7 @@
               <p>Повторяющиеся события попадают в статистику по сети.</p>
             </article>
           </div>
-        </article>
-        <article class="product-card product-card-control" id="control">
-          <div class="control-head">
-            <div>
-              <h2>Система контролирует кассу, персонал, безопасность и клиентский поток</h2>
-            </div>
-            <p>
-              Все события группируются по понятным бизнес-сценариям. Вместо просмотра длинного архива
-              оператор получает карточку события: магазин, камера, время, тип фиксации и видеодоказательство.
-            </p>
-            <div class="control-total" aria-label="18 сценариев контроля">
-              <strong>18</strong>
-              <span>готовых сценариев контроля</span>
-            </div>
-          </div>
-          <div class="control-grid">
-          <article class="control-card">
-            <span>01</span>
-            <h3>Касса и поток клиентов</h3>
-            <p>Помогает увидеть очереди, нагрузку на смену, отсутствие сотрудника и события в кассовой зоне.</p>
-            <ul class="scenario-list">
-              <li>Пересчет кассы</li>
-              <li data-preview-src="images/defects/cash-register.jpeg" data-preview-title="Касса" title="Навести для просмотра примера">Касса</li>
-              <li>Конверсия</li>
-              <li data-preview-src="images/defects/toManyPeopleAtStall.jpeg" data-preview-title="Много людей за прилавком" title="Навести для просмотра примера">Много людей за прилавком</li>
-              <li data-preview-src="images/defects/noOneAtStall.jpeg" data-preview-title="Никого за прилавком" title="Навести для просмотра примера">Никого за прилавком</li>
-              <li data-preview-src="images/defects/crowd.jpeg" data-preview-title="Очередь" title="Навести для просмотра примера">Очередь</li>
-              <li>Продавец неактивен</li>
-            </ul>
-          </article>
-          <article class="control-card">
-            <span>02</span>
-            <h3>Персонал и стандарты</h3>
-            <p>Фиксирует отклонения от регламентов, которые сложно стабильно контролировать вручную.</p>
-            <ul class="scenario-list">
-              <li data-preview-src="images/defects/delays.jpeg" data-preview-title="Опоздания" title="Навести для просмотра примера">Опоздания</li>
-              <li data-preview-src="images/defects/pose.jpeg" data-preview-title="Сидит при клиенте" title="Навести для просмотра примера">Сидит при клиенте</li>
-              <li data-preview-src="images/defects/phones.jpeg" data-preview-title="Телефон" title="Навести для просмотра примера">Телефон</li>
-              <li>Бейдж</li>
-              <li data-preview-src="images/defects/mopping.jpeg" data-preview-title="Мойка полов" title="Навести для просмотра примера">Мойка полов</li>
-              <li>Форма одежды</li>
-            </ul>
-          </article>
-          <article class="control-card">
-            <span>03</span>
-            <h3>Безопасность и порядок</h3>
-            <p>Показывает события, которые требуют быстрой реакции или последующего разбора ответственным сотрудником.</p>
-            <ul class="scenario-list">
-              <li data-preview-src="images/defects/bottle.jpeg" data-preview-title="Бутылки" title="Навести для просмотра примера">Бутылки</li>
-              <li data-preview-src="images/defects/clearStall.jpeg" data-preview-title="Лишние предметы в области" title="Навести для просмотра примера">Лишние предметы в области</li>
-              <li>Свет</li>
-              <li data-preview-src="images/defects/smoke.jpeg" data-preview-title="Курение" title="Навести для просмотра примера">Курение</li>
-              <li>Человек после закрытия</li>
-            </ul>
-          </article>
-          </div>
-        </article>
+        </div>
       </section>
 
       <section class="detections section-pad reveal" id="detections">
@@ -289,88 +280,6 @@
             </button>
           </div>
         </div>
-        <div class="detection-notes">
-          <article class="detection-note detection-note-primary reveal-card">
-            <span>Точность в контуре</span>
-            <h3>Качество модели оценивается по подтверждённым фиксациям</h3>
-            <p>
-              Фактическая точность зависит от угла камеры, освещения, разметки зон,
-              частоты отбора кадров и сценария магазина. В рабочем контуре качество
-              удобно измерять по подтверждённым и отклонённым оператором событиям,
-              чтобы подстраивать пороги и временные окна под конкретную точку.
-            </p>
-          </article>
-          <article class="detection-note detection-note-secondary reveal-card">
-            <span>Дообучение модели</span>
-            <h3>Подтверждения и ложные срабатывания можно использовать для улучшения модели</h3>
-            <p>
-              Из фиксаций, изображений и отклонённых оператором событий можно
-              собирать размеченный датасет и обновлять модель или профиль сервиса
-              без изменения пользовательского интерфейса. Такой цикл помогает
-              постепенно повышать точность именно на реальных камерах сети.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="value section-pad" id="cases">
-        <div class="value-card">
-          <p class="section-label inverted">Для бизнеса</p>
-          <h2>Меньше ручной проверки, быстрее реакция, прозрачнее контроль</h2>
-          <p>
-            kVision помогает работать не с часами видео, а с готовыми событиями,
-            видеодоказательствами и статистикой по точкам, сменам и повторяющимся сценариям.
-          </p>
-          <a class="button button-blue" href="#contacts" aria-label="Запросить демонстрацию">
-            <span class="button-text" aria-hidden="true">
-              <span class="button-text-track">
-                <span class="button-text-item">Запросить демо</span>
-                <span class="button-text-item">Запросить демо</span>
-              </span>
-            </span>
-          </a>
-          <div class="value-card-details">
-            <article>
-              <strong>24/7</strong>
-              <span>контроль сети без ручного просмотра архива</span>
-            </article>
-            <article>
-              <strong>1 окно</strong>
-              <span>для оператора, администратора и руководителя</span>
-            </article>
-            <article>
-              <strong>AI</strong>
-              <span>срабатывания, доказательства и статистика в одном потоке</span>
-            </article>
-          </div>
-        </div>
-        <div class="value-list">
-          <article>
-            <span></span>
-            <h3>Меньше ручного просмотра</h3>
-            <p>Оператор работает не с часами видео, а с готовыми событиями и короткими фрагментами.</p>
-          </article>
-          <article>
-            <span></span>
-            <h3>Быстрее разбор инцидентов</h3>
-            <p>По каждому событию есть время, камера, магазин и видеодоказательство.</p>
-          </article>
-          <article>
-            <span></span>
-            <h3>Контроль всей сети</h3>
-            <p>Руководитель видит повторяющиеся проблемы по точкам, сменам и сценариям.</p>
-          </article>
-          <article>
-            <span></span>
-            <h3>Единые стандарты</h3>
-            <p>События фиксируются по одинаковым правилам, а не зависят только от человеческого фактора.</p>
-          </article>
-          <article>
-            <span></span>
-            <h3>Данные для решений</h3>
-            <p>Статистика помогает понять, где нужен инструктаж, дополнительный персонал или изменение процесса.</p>
-          </article>
-        </div>
       </section>
 
       <section class="architecture workflow-section section-pad">
@@ -388,6 +297,7 @@
         <div class="workflow-grid workflow-steps">
           <article>
             <span>Шаг 1</span>
+            <i aria-hidden="true"></i>
             <h3>AI фиксирует событие</h3>
             <p>
               Система находит нарушение или важный эпизод на камере и сохраняет
@@ -396,6 +306,7 @@
           </article>
           <article>
             <span>Шаг 2</span>
+            <i aria-hidden="true"></i>
             <h3>Оператор проверяет доказательства</h3>
             <p>
               Сотрудник открывает карточку события, смотрит видео и подтверждает
@@ -404,6 +315,7 @@
           </article>
           <article>
             <span>Шаг 3</span>
+            <i aria-hidden="true"></i>
             <h3>Администратор управляет доступами</h3>
             <p>
               Магазины, камеры, роли и пользователи настраиваются централизованно
@@ -412,6 +324,7 @@
           </article>
           <article>
             <span>Шаг 4</span>
+            <i aria-hidden="true"></i>
             <h3>Руководитель видит статистику</h3>
             <p>
               Повторяющиеся нарушения и проблемные зоны попадают в отчёты для
@@ -431,111 +344,137 @@
             Нажмите на изображение, чтобы раскрыть его во весь экран.
           </p>
         </div>
-        <div class="showcase-grid">
-          <article class="interface-carousel interface-carousel-screen wide reveal-card" data-carousel="product-entry" data-carousel-autoplay="false">
-            <div class="carousel-copy">
-              <span>Оператор</span>
-              <h3>Выбор магазина</h3>
-              <p>
-                Оператор выбирает торговую точку и сразу переходит к камерам,
-                архиву, фиксациям или статистике конкретного объекта.
-              </p>
+        <div class="showcase-grid interface-workspace">
+          <div class="interface-tabs reveal-card" data-interface-tabs>
+            <div class="interface-tab-list" role="tablist" aria-label="Разделы интерфейса kVision">
+              <button class="interface-tab is-active" type="button" role="tab" id="interface-tab-operator" aria-selected="true" aria-controls="interface-panel-operator" data-interface-tab="operator">
+                <span>01</span>
+                <strong>Оператор</strong>
+                <em>выбор магазина</em>
+              </button>
+              <button class="interface-tab" type="button" role="tab" id="interface-tab-streaming" aria-selected="false" aria-controls="interface-panel-streaming" data-interface-tab="streaming">
+                <span>02</span>
+                <strong>Онлайн-контроль</strong>
+                <em>камеры и live-поток</em>
+              </button>
+              <button class="interface-tab" type="button" role="tab" id="interface-tab-archive" aria-selected="false" aria-controls="interface-panel-archive" data-interface-tab="archive">
+                <span>03</span>
+                <strong>Архив</strong>
+                <em>фрагменты и записи</em>
+              </button>
             </div>
-            <div class="carousel-shell">
-              <div class="carousel-viewport">
-                <figure class="carousel-slide is-active" data-slide>
-                  <img src="images/client/stores.jpg" alt="Меню выбора магазина в kVision" />
-                  <figcaption>
-                    <strong>Выбор магазина</strong>
-                    <span>Быстрый вход к камерам, архиву и разделам выбранной торговой точки.</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </article>
 
-          <article class="interface-carousel reveal-card" data-carousel="streaming" data-carousel-autoplay="false">
-            <div class="carousel-copy">
-              <span>Онлайн-контроль</span>
-              <h3>Онлайн-просмотр камер</h3>
-              <p>
-                Можно открыть нужные потоки, переключить качество и быстро
-                проверить ситуацию в магазине.
-              </p>
-            </div>
-            <div class="carousel-shell">
-              <div class="carousel-viewport">
-                <figure class="carousel-slide is-active" data-slide>
-                  <img
-                    src="images/client/streaming-camera-select.jpg"
-                    alt="Выбор камер для просмотра стрима"
-                  />
-                  <figcaption>
-                    <strong>Выбор камер</strong>
-                    <span>Сбор рабочего набора камер под конкретную задачу контроля.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img src="images/client/streaming.jpg" alt="Просмотр видеопотока в kVision" />
-                  <figcaption>
-                    <strong>Онлайн-просмотр</strong>
-                    <span>Переключение качества помогает балансировать детализацию и стабильность.</span>
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="carousel-controls" aria-label="Переключение экранов стриминга">
-                <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
-                <div class="carousel-dots" aria-hidden="true"></div>
-                <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
-              </div>
-            </div>
-          </article>
+            <div class="interface-panels">
+              <article class="interface-panel is-active" id="interface-panel-operator" role="tabpanel" aria-labelledby="interface-tab-operator" data-interface-panel="operator">
+                <div class="carousel-copy">
+                  <span>Оператор</span>
+                  <h3>Выбор магазина и быстрый вход в рабочие разделы</h3>
+                  <p>
+                    Оператор выбирает торговую точку и сразу переходит к камерам,
+                    архиву, фиксациям или статистике конкретного объекта.
+                  </p>
+                </div>
+                <div class="carousel-shell">
+                  <div class="carousel-viewport">
+                    <figure class="carousel-slide is-active" data-slide>
+                      <img src="images/client/stores.jpg" alt="Меню выбора магазина в kVision" />
+                      <figcaption>
+                        <strong>Выбор магазина</strong>
+                        <span>Быстрый вход к камерам, архиву и разделам выбранной торговой точки.</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
 
-          <article class="interface-carousel reveal-card" data-carousel="archive" data-carousel-autoplay="false">
-            <div class="carousel-copy">
-              <span>Архив</span>
-              <h3>Архив и видеофрагменты</h3>
-              <p>
-                Оператор задаёт период, находит нужную запись, скачивает фрагмент
-                или возвращается к live-просмотру.
-              </p>
-            </div>
-            <div class="carousel-shell">
-              <div class="carousel-viewport">
-                <figure class="carousel-slide is-active" data-slide>
-                  <img src="images/client/download-page.jpg" alt="Страница скачивания видео с сервера" />
-                  <figcaption>
-                    <strong>Загрузка фрагмента</strong>
-                    <span>Выбор периода и загрузка нужной записи с локального сервера.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img
-                    src="images/client/players-download-page.jpg"
-                    alt="Просмотр скачанного видеофрагмента"
-                  />
-                  <figcaption>
-                    <strong>Просмотр записи</strong>
-                    <span>Плеер помогает разобрать нужный эпизод вне live-потока.</span>
-                  </figcaption>
-                </figure>
-                <figure class="carousel-slide" data-slide>
-                  <img src="images/client/live-archive.jpg" alt="Live-архив и видеоплеер" />
-                  <figcaption>
-                    <strong>Live-архив</strong>
-                    <span>Быстрый возврат к нужному моменту прямо из интерфейса.</span>
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="carousel-controls" aria-label="Переключение экранов архива">
-                <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
-                <div class="carousel-dots" aria-hidden="true"></div>
-                <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
-              </div>
-            </div>
-          </article>
+              <article class="interface-panel" id="interface-panel-streaming" role="tabpanel" aria-labelledby="interface-tab-streaming" data-interface-panel="streaming" hidden>
+                <div class="interface-carousel" data-carousel="streaming" data-carousel-autoplay="false">
+                  <div class="carousel-copy">
+                    <span>Онлайн-контроль</span>
+                    <h3>Онлайн-просмотр камер</h3>
+                    <p>
+                      Можно открыть нужные потоки, переключить качество и быстро
+                      проверить ситуацию в магазине.
+                    </p>
+                  </div>
+                  <div class="carousel-shell">
+                    <div class="carousel-viewport">
+                      <figure class="carousel-slide is-active" data-slide>
+                        <img
+                          src="images/client/streaming-camera-select.jpg"
+                          alt="Выбор камер для просмотра стрима"
+                        />
+                        <figcaption>
+                          <strong>Выбор камер</strong>
+                          <span>Сбор рабочего набора камер под конкретную задачу контроля.</span>
+                        </figcaption>
+                      </figure>
+                      <figure class="carousel-slide" data-slide>
+                        <img src="images/client/streaming.jpg" alt="Просмотр видеопотока в kVision" />
+                        <figcaption>
+                          <strong>Онлайн-просмотр</strong>
+                          <span>Переключение качества помогает балансировать детализацию и стабильность.</span>
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div class="carousel-controls" aria-label="Переключение экранов стриминга">
+                      <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
+                      <div class="carousel-dots" aria-hidden="true"></div>
+                      <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-          <article class="interface-demo-card reveal-card">
+              <article class="interface-panel" id="interface-panel-archive" role="tabpanel" aria-labelledby="interface-tab-archive" data-interface-panel="archive" hidden>
+                <div class="interface-carousel" data-carousel="archive" data-carousel-autoplay="false">
+                  <div class="carousel-copy">
+                    <span>Архив</span>
+                    <h3>Архив и видеофрагменты</h3>
+                    <p>
+                      Оператор задаёт период, находит нужную запись, скачивает фрагмент
+                      или возвращается к live-просмотру.
+                    </p>
+                  </div>
+                  <div class="carousel-shell">
+                    <div class="carousel-viewport">
+                      <figure class="carousel-slide is-active" data-slide>
+                        <img src="images/client/download-page.jpg" alt="Страница скачивания видео с сервера" />
+                        <figcaption>
+                          <strong>Загрузка фрагмента</strong>
+                          <span>Выбор периода и загрузка нужной записи с локального сервера.</span>
+                        </figcaption>
+                      </figure>
+                      <figure class="carousel-slide" data-slide>
+                        <img
+                          src="images/client/players-download-page.jpg"
+                          alt="Просмотр скачанного видеофрагмента"
+                        />
+                        <figcaption>
+                          <strong>Просмотр записи</strong>
+                          <span>Плеер помогает разобрать нужный эпизод вне live-потока.</span>
+                        </figcaption>
+                      </figure>
+                      <figure class="carousel-slide" data-slide>
+                        <img src="images/client/live-archive.jpg" alt="Live-архив и видеоплеер" />
+                        <figcaption>
+                          <strong>Live-архив</strong>
+                          <span>Быстрый возврат к нужному моменту прямо из интерфейса.</span>
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div class="carousel-controls" aria-label="Переключение экранов архива">
+                      <button class="carousel__button" type="button" data-carousel-prev aria-label="Предыдущий экран">←</button>
+                      <div class="carousel-dots" aria-hidden="true"></div>
+                      <button class="carousel__button" type="button" data-carousel-next aria-label="Следующий экран">→</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <article class="interface-demo-card interface-demo-compact reveal-card">
             <div class="interface-demo-copy">
               <span>Демонстрационная версия</span>
               <h3>Пройдите типовой путь оператора в demo-версии</h3>
@@ -766,7 +705,7 @@
 
       <section class="deployment-overview section-pad">
         <div class="deployment-grid">
-          <article class="deployment-card reveal-card">
+          <article class="deployment-card deployment-card-connect reveal-card">
             <p class="section-label">Способ подключения</p>
             <h2>Подключение без сложной перестройки текущего контура</h2>
             <p>
@@ -776,19 +715,40 @@
               события в интерфейс.
             </p>
             <div class="deployment-flow" aria-label="Схема подключения kVision">
-              <span>Единый вход</span>
-              <span>Сервер на точке</span>
-              <span>Готовые фиксации</span>
+              <span>
+                <em>01</em>
+                Единый вход
+              </span>
+              <span>
+                <em>02</em>
+                Сервер на точке
+              </span>
+              <span>
+                <em>03</em>
+                Готовые фиксации
+              </span>
             </div>
-            <ul class="deployment-points">
-              <li>на торговой точке разворачивается локальный сервер, который подключается к 2-6 камерам без изменения привычной схемы наблюдения;</li>
-              <li>центральный контур собирает магазины, права доступа и маршрутизацию, поэтому оператор работает в одном окне по всей сети;</li>
-              <li>видео, архив и AI-проверка обрабатываются рядом с камерой, что сокращает задержки и уменьшает нагрузку на внешний канал;</li>
-              <li>в интерфейс попадает уже готовое событие с фрагментом видео, временем и привязкой к конкретной точке.</li>
-            </ul>
+            <div class="deployment-route-note">
+              <strong>Локальная обработка рядом с камерами</strong>
+              <span>меньше задержек, ниже нагрузка на внешний канал, быстрее проверка события</span>
+            </div>
+            <div class="deployment-points">
+              <article>
+                <strong>Точка</strong>
+                <p>Локальный сервер подключается к 2-6 камерам без изменения привычной схемы наблюдения.</p>
+              </article>
+              <article>
+                <strong>Центр</strong>
+                <p>Единый контур собирает магазины, права доступа и маршрутизацию для всей сети.</p>
+              </article>
+              <article>
+                <strong>Событие</strong>
+                <p>В интерфейс попадает готовая фиксация с видеофрагментом, временем и привязкой к точке.</p>
+              </article>
+            </div>
           </article>
-          <article class="deployment-card reveal-card">
-            <p class="section-label">Что Нужно Для Запуска</p>
+          <article class="deployment-card deployment-card-launch reveal-card">
+            <p class="section-label">Что нужно для запуска</p>
             <h2>Пилот можно собрать быстро и масштабировать по сети</h2>
             <p>
               Для старта не нужен тяжелый проект внедрения. Мы собираем пилот
@@ -797,18 +757,22 @@
             </p>
             <div class="deployment-highlights">
               <article>
+                <span>01</span>
                 <strong>1 точка для старта</strong>
                 <p>Достаточно выбрать магазин, подключить камеры и согласовать сценарии контроля.</p>
               </article>
               <article>
+                <span>02</span>
                 <strong>2-6 камер на пилот</strong>
                 <p>Этого достаточно, чтобы показать работу AI на кассе, прилавке, архиве и типовых нарушениях.</p>
               </article>
               <article>
+                <span>03</span>
                 <strong>Локальный контур</strong>
                 <p>Основная обработка остается на точке, поэтому запуск не упирается в широкий внешний канал.</p>
               </article>
               <article>
+                <span>04</span>
                 <strong>Масштабирование по сети</strong>
                 <p>После пилота новые магазины подключаются по той же схеме без пересборки всего решения.</p>
               </article>

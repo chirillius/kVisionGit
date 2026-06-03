@@ -46,6 +46,124 @@
     }
   };
 
+  const productShowcaseCategories = [
+    {
+      id: 'cash-flow',
+      tab: 'Касса и поток',
+      label: 'Категория 01',
+      title: 'Касса и поток клиентов',
+      description:
+        'Сценарии, которые помогают быстрее замечать перегрузку кассовой зоны, очереди и спорные эпизоды обслуживания.',
+      scenarios: [
+        {
+          id: 'cash-register',
+          name: 'Касса',
+          description:
+            'Быстрый просмотр эпизодов в кассовой зоне с понятным визуальным доказательством для проверки.',
+          image: 'images/defects/cash-register.jpeg',
+        },
+        {
+          id: 'too-many-people',
+          name: 'Много людей за прилавком',
+          description:
+            'Помогает увидеть перегруженные зоны и ситуации, где сервис уже начинает проседать.',
+          image: 'images/defects/toManyPeopleAtStall.jpeg',
+        },
+        {
+          id: 'no-one-at-stall',
+          name: 'Никого за прилавком',
+          description:
+            'Подсвечивает моменты, когда клиентская зона остается без сотрудника.',
+          image: 'images/defects/noOneAtStall.jpeg',
+        },
+        {
+          id: 'crowd',
+          name: 'Очередь',
+          description:
+            'Сигнализирует о росте очереди до того, как это перерастет в потерю качества обслуживания.',
+          image: 'images/defects/crowd.jpeg',
+        },
+        { id: 'cash-count', name: 'Пересчёт кассы', description: '', image: null },
+        { id: 'conversion', name: 'Конверсия', description: '', image: null },
+        { id: 'inactive-seller', name: 'Продавец неактивен', description: '', image: null },
+      ],
+    },
+    {
+      id: 'personnel',
+      tab: 'Персонал и стандарты',
+      label: 'Категория 02',
+      title: 'Персонал и стандарты',
+      description:
+        'Сценарии дисциплины и регламентов, которые трудно отслеживать стабильно вручную на длинном архиве.',
+      scenarios: [
+        {
+          id: 'delays',
+          name: 'Опоздания',
+          description: 'Фиксация входа сотрудников позже ожидаемого времени смены.',
+          image: 'images/defects/delays.jpeg',
+        },
+        {
+          id: 'pose',
+          name: 'Сидит при клиенте',
+          description:
+            'Помогает видеть эпизоды, где поведение сотрудника расходится со стандартом обслуживания.',
+          image: 'images/defects/pose.jpeg',
+        },
+        {
+          id: 'phones',
+          name: 'Телефон',
+          description: 'Подсвечивает отвлечение сотрудника на телефон в рабочей зоне.',
+          image: 'images/defects/phones.jpeg',
+        },
+        {
+          id: 'mopping',
+          name: 'Мойка полов',
+          description:
+            'Помогает находить эпизоды обслуживания и уборки, которые конфликтуют по времени или контексту.',
+          image: 'images/defects/mopping.jpeg',
+        },
+        { id: 'badge', name: 'Бейдж', description: '', image: null },
+        { id: 'uniform', name: 'Форма одежды', description: '', image: null },
+      ],
+    },
+    {
+      id: 'safety',
+      tab: 'Безопасность и порядок',
+      label: 'Категория 03',
+      title: 'Безопасность и порядок',
+      description:
+        'Сценарии для нежелательных событий и визуальных отклонений, которые нельзя пропускать в общем потоке камер.',
+      scenarios: [
+        {
+          id: 'bottles',
+          name: 'Бутылки',
+          description:
+            'Контроль объектов в заданных зонах с быстрым переходом к визуальному подтверждению.',
+          image: 'images/defects/bottle.jpeg',
+        },
+        {
+          id: 'clear-stall',
+          name: 'Лишние предметы в области',
+          description:
+            'Помогает видеть изменения сцены и посторонние объекты в чувствительных зонах.',
+          image: 'images/defects/clearStall.jpeg',
+        },
+        {
+          id: 'smoke',
+          name: 'Курение',
+          description:
+            'Выводит события с дымом или курением там, где это критично для регламента.',
+          image: 'images/defects/smoke.jpeg',
+        },
+        { id: 'light', name: 'Свет', description: '', image: null },
+        { id: 'after-close', name: 'Человек после закрытия', description: '', image: null },
+      ],
+    },
+  ];
+
+  const getFirstAvailableScenario = (category) =>
+    category.scenarios.find((scenario) => scenario.image) ?? category.scenarios[0];
+
   const heroVideoBg = document.querySelector('[data-hero-video-bg]');
 
   if (heroVideoBg) {
@@ -103,6 +221,158 @@
 
     if (!reduceMotion && playlist.length > 1) {
       window.setInterval(switchHeroVideo, 5000);
+    }
+  }
+
+  const productShowcase = document.querySelector('[data-product-showcase]');
+
+  if (productShowcase) {
+    const stage = productShowcase.querySelector('.product-showcase-stage');
+    const tabs = productShowcase.querySelector('[data-product-tabs]');
+    const scenarios = productShowcase.querySelector('[data-product-scenarios]');
+    const categoryLabel = productShowcase.querySelector('[data-product-category-label]');
+    const categoryTitle = productShowcase.querySelector('[data-product-category-title]');
+    const categoryDescription = productShowcase.querySelector('[data-product-category-description]');
+    const preview = productShowcase.querySelector('[data-product-preview]');
+    const previewKicker = productShowcase.querySelector('[data-product-preview-kicker]');
+    const previewTitle = productShowcase.querySelector('[data-product-preview-title]');
+    const previewCopy = productShowcase.querySelector('[data-product-preview-copy]');
+    const previewImage = productShowcase.querySelector('[data-product-preview-image]');
+
+    if (
+      tabs &&
+      scenarios &&
+      categoryLabel &&
+      categoryTitle &&
+      categoryDescription &&
+      preview &&
+      previewKicker &&
+      previewTitle &&
+      previewCopy &&
+      previewImage &&
+      stage
+    ) {
+      let activeCategoryId = productShowcaseCategories[0].id;
+      let activeScenarioId = getFirstAvailableScenario(productShowcaseCategories[0]).id;
+      let lockedShowcaseHeight = 0;
+
+      const applyLockedShowcaseHeight = () => {
+        if (window.innerWidth <= 1180) {
+          stage.style.height = '';
+          return;
+        }
+
+        if (lockedShowcaseHeight > 0) {
+          stage.style.height = `${lockedShowcaseHeight}px`;
+        }
+      };
+
+      const lockInitialShowcaseHeight = () => {
+        if (window.innerWidth <= 1180 || lockedShowcaseHeight > 0) {
+          return;
+        }
+
+        stage.style.height = '';
+        lockedShowcaseHeight = Math.ceil(stage.getBoundingClientRect().height);
+        applyLockedShowcaseHeight();
+      };
+
+      const renderPreview = (category, scenario) => {
+        preview.classList.remove('is-switching');
+        void preview.offsetWidth;
+        preview.classList.add('is-switching');
+
+        previewKicker.textContent = category.title;
+        previewTitle.textContent = scenario.name;
+        previewCopy.textContent = scenario.description;
+        previewImage.src = scenario.image || '';
+        previewImage.alt = scenario.name;
+      };
+
+      const renderScenarios = (category) => {
+        scenarios.innerHTML = '';
+
+        category.scenarios.forEach((scenario, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'product-scenario';
+          button.dataset.scenarioId = scenario.id;
+
+          if (!scenario.image) {
+            button.classList.add('is-disabled');
+            button.disabled = true;
+          }
+
+          if (scenario.id === activeScenarioId) {
+            button.classList.add('is-active');
+          }
+
+          button.innerHTML = `
+            <span class="product-scenario-index">${String(index + 1).padStart(2, '0')}</span>
+            <span class="product-scenario-name">${scenario.name}</span>
+          `;
+
+          if (scenario.image) {
+            button.addEventListener('click', () => {
+              activeScenarioId = scenario.id;
+              render();
+            });
+          }
+
+          scenarios.append(button);
+        });
+      };
+
+      const renderTabs = () => {
+        tabs.innerHTML = '';
+
+        productShowcaseCategories.forEach((category) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'product-tab';
+          button.textContent = category.tab;
+
+          if (category.id === activeCategoryId) {
+            button.classList.add('is-active');
+          }
+
+          button.addEventListener('click', () => {
+            if (category.id === activeCategoryId) {
+              return;
+            }
+
+            activeCategoryId = category.id;
+            activeScenarioId = getFirstAvailableScenario(category).id;
+            render();
+          });
+
+          tabs.append(button);
+        });
+      };
+
+      const render = () => {
+        const category = productShowcaseCategories.find((item) => item.id === activeCategoryId);
+        if (!category) {
+          return;
+        }
+
+        const scenario =
+          category.scenarios.find((item) => item.id === activeScenarioId && item.image) ||
+          getFirstAvailableScenario(category);
+
+        activeScenarioId = scenario.id;
+        categoryLabel.textContent = category.label;
+        categoryTitle.textContent = category.title;
+        categoryDescription.textContent = category.description;
+
+        renderTabs();
+        renderScenarios(category);
+        renderPreview(category, scenario);
+      };
+
+      render();
+      window.requestAnimationFrame(lockInitialShowcaseHeight);
+      window.addEventListener('resize', applyLockedShowcaseHeight);
     }
   }
 
@@ -516,7 +786,65 @@
     startAutoplay();
   });
 
-  const interfaceImages = document.querySelectorAll('.interface-carousel .carousel-slide img, .architecture-full-image');
+  document.querySelectorAll('[data-interface-tabs]').forEach((tabsRoot) => {
+    const tabs = Array.from(tabsRoot.querySelectorAll('[data-interface-tab]'));
+    const panels = Array.from(tabsRoot.querySelectorAll('[data-interface-panel]'));
+
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    const selectTab = (tabToSelect, shouldFocus = false) => {
+      const target = tabToSelect.dataset.interfaceTab;
+
+      tabs.forEach((tab) => {
+        const isActive = tab === tabToSelect;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.interfacePanel === target;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+
+      if (shouldFocus) {
+        tabToSelect.focus({ preventScroll: true });
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.tabIndex = tab.classList.contains('is-active') ? 0 : -1;
+      tab.addEventListener('click', () => selectTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        const nextKeys = ['ArrowRight', 'ArrowDown'];
+        const prevKeys = ['ArrowLeft', 'ArrowUp'];
+
+        if (!nextKeys.includes(event.key) && !prevKeys.includes(event.key) && event.key !== 'Home' && event.key !== 'End') {
+          return;
+        }
+
+        event.preventDefault();
+        let nextIndex = index;
+
+        if (nextKeys.includes(event.key)) {
+          nextIndex = (index + 1) % tabs.length;
+        } else if (prevKeys.includes(event.key)) {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === 'Home') {
+          nextIndex = 0;
+        } else if (event.key === 'End') {
+          nextIndex = tabs.length - 1;
+        }
+
+        selectTab(tabs[nextIndex], true);
+      });
+    });
+  });
+
+  const interfaceImages = document.querySelectorAll('.interface-carousel .carousel-slide img, .interface-panel > .carousel-shell .carousel-slide img, .architecture-full-image');
 
   if (interfaceImages.length) {
     const preview = document.createElement('div');

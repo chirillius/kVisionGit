@@ -9,6 +9,7 @@ const demoDefectsHtml = await readFile(new URL('../demo/defects.html', import.me
 const demoStatisticsHtml = await readFile(new URL('../demo/statistics.html', import.meta.url), 'utf8');
 const demoScript = await readFile(new URL('../demo/demo.js', import.meta.url), 'utf8');
 const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 'utf8');
+const script = await readFile(new URL('../script.js', import.meta.url), 'utf8');
 
 {
   assert.match(html, /AI-видеоаналитика для розничных сетей/i);
@@ -68,11 +69,12 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredBusinessCopy = [
-    'Меньше ручной проверки, быстрее реакция, прозрачнее контроль',
-    'Руководитель видит повторяющиеся проблемы',
+    'Система превращает видеоархив в регулярный управленческий процесс',
+    'AI фиксирует событие',
     'Администратор управляет доступами',
     'Оператор проверяет доказательства',
-    'Данные для решений',
+    'Руководитель видит статистику',
+    'Повторяющиеся нарушения и проблемные зоны попадают в отчёты',
   ];
 
   for (const copy of requiredBusinessCopy) {
@@ -149,15 +151,30 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'Касса и поток клиентов',
     'Персонал и стандарты',
     'Безопасность и порядок',
-    '18 сценариев контроля',
+    'data-product-showcase',
+    'data-product-tabs',
+    'data-product-scenarios',
+    'data-product-preview-image',
+    'Как это работает',
+    'kVision превращает видеонаблюдение из пассивного архива в рабочий инструмент контроля',
+    'Камеры',
+    'AI-анализ',
+    'Карточка события',
+    'Проверка оператором',
+    'Отчётность',
+  ];
+
+  for (const scenario of requiredControlScenarios) {
+    assert.match(html, new RegExp(scenario.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
+  }
+
+  const requiredControlScriptCopy = [
+    'Пересчёт кассы',
     'Лишние предметы в области',
     'Опоздания',
-    'Пересчет кассы',
     'Мойка полов',
-    'Свет',
     'Сидит при клиенте',
     'Телефон',
-    'Бейдж',
     'Касса',
     'Курение',
     'Конверсия',
@@ -167,21 +184,21 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'Продавец неактивен',
     'Форма одежды',
     'Человек после закрытия',
-    'data-preview-src="images/defects/bottle.jpeg"',
-    'data-preview-src="images/defects/smoke.jpeg"',
-    'data-preview-src="images/defects/phones.jpeg"',
-    'data-preview-src="images/defects/pose.jpeg"',
-    'data-preview-src="images/defects/cash-register.jpeg"',
-    'data-preview-src="images/defects/toManyPeopleAtStall.jpeg"',
-    'data-preview-src="images/defects/noOneAtStall.jpeg"',
-    'data-preview-src="images/defects/crowd.jpeg"',
-    'data-preview-src="images/defects/delays.jpeg"',
-    'data-preview-src="images/defects/mopping.jpeg"',
-    'data-preview-src="images/defects/clearStall.jpeg"',
+    'images/defects/bottle.jpeg',
+    'images/defects/smoke.jpeg',
+    'images/defects/phones.jpeg',
+    'images/defects/pose.jpeg',
+    'images/defects/cash-register.jpeg',
+    'images/defects/toManyPeopleAtStall.jpeg',
+    'images/defects/noOneAtStall.jpeg',
+    'images/defects/crowd.jpeg',
+    'images/defects/delays.jpeg',
+    'images/defects/mopping.jpeg',
+    'images/defects/clearStall.jpeg',
   ];
 
-  for (const scenario of requiredControlScenarios) {
-    assert.match(html, new RegExp(scenario.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
+  for (const scenario of requiredControlScriptCopy) {
+    assert.match(script, new RegExp(scenario.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
   }
 }
 
@@ -203,9 +220,6 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
     'data-scroll-video',
     'data-detection-video',
     'Фиксирует события в кассовой зоне',
-    'Точность в контуре',
-    'Дообучение модели',
-    'подтверждённым и отклонённым оператором событиям',
   ];
 
   for (const example of requiredDetectionExamples) {
@@ -215,7 +229,8 @@ const demoStyles = await readFile(new URL('../demo/demo.css', import.meta.url), 
 
 {
   const requiredCarouselGroups = [
-    'data-carousel="product-entry"',
+    'data-interface-tabs',
+    'data-interface-tab="operator"',
     'data-carousel="streaming"',
     'data-carousel="archive"',
   ];

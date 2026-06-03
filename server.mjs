@@ -7,7 +7,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const demoAppRoot = path.resolve(root, '..', 'dist');
 const demoDefectRoot = path.resolve(root, 'images', 'defectPage');
 const demoArchiveRoot = path.resolve(root, 'videos', 'download-archive');
-const port = Number(process.env.PORT || 4174);
+const port = Number(process.env.PORT || 4184);
 const host = process.env.HOST || "127.0.0.1";
 
 const types = {
